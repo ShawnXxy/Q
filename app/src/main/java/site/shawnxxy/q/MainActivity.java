@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -49,6 +50,21 @@ public class MainActivity extends AppCompatActivity {
 		mAdapter = new GuestListAdapter(this, cursor);
 		// Link the adapter tot he RecyclerView
 		waitlistRecyclerView.setAdapter(mAdapter);
+
+		// Create an item touch helper to handle swiping items off the list
+		new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+			@Override
+			public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+				return false;
+			}
+
+			@Override
+			public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+				long id = (long) viewHolder.itemView.getTag();
+				removeGuest(id);
+				mAdapter.swapCursor(getAllGuests());
+			}
+		}).attachToRecyclerView(waitlistRecyclerView);
 
 	}
 
@@ -98,5 +114,12 @@ public class MainActivity extends AppCompatActivity {
 				null,
 				WaitlistContract.WaitlistEntry.COLUMN_TIMESTAMP
 		);
+	}
+
+	/**
+	 *  Remove the record with the specified id
+	 */
+	private boolean removeGuest(long id) {
+		return mDb.delete(WaitlistContract.WaitlistEntry.TABLE_NAME, WaitlistContract.WaitlistEntry._ID + "=" + id, null) > 0;
 	}
 }
