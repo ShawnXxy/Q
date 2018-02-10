@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.GuestViewHolder> {
 
 	private Context context;
-	
+
 	public GuestListAdapter(Context context) {
 		this.context = context;
 	}
