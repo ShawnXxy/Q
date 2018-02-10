@@ -15,12 +15,17 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
 
 	private Context context;
 
+	/**
+	 *  Constructor using the context and the db cursor
+	 * @param context
+	 */
 	public GuestListAdapter(Context context) {
 		this.context = context;
 	}
 
 	@Override
 	public GuestViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+		// Get the RecyclerView item layout
 		LayoutInflater inflater = LayoutInflater.from(context);
 		View view = inflater.inflate(R.layout.guest_list_item, parent, false);
 		return new GuestViewHolder(view);
@@ -36,10 +41,13 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
 		return 0;
 	}
 
-
+	/**
+	 *  Inner class to hold the views needed to display a single item in the recyclerview
+	 */
 	class GuestViewHolder extends RecyclerView.ViewHolder {
-
+		// Will display the guest name
 		TextView nameTextView;
+		// Will display the party size number
 		TextView partySizeTextView;
 
 		public GuestViewHolder(View itemView) {
