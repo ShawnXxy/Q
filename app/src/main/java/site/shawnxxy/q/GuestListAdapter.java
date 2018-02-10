@@ -15,12 +15,15 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
 
 	private Context context;
 
+	private int count;
+
 	/**
 	 *  Constructor using the context and the db cursor
 	 * @param context
 	 */
-	public GuestListAdapter(Context context) {
+	public GuestListAdapter(Context context, int count) {
 		this.context = context;
+		this.count = count;
 	}
 
 	@Override
@@ -38,7 +41,7 @@ public class GuestListAdapter extends RecyclerView.Adapter<GuestListAdapter.Gues
 
 	@Override
 	public int getItemCount() {
-		return 0;
+		return count;
 	}
 
 	/**
