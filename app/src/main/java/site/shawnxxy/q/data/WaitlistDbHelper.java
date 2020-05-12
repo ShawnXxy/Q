@@ -23,7 +23,7 @@ public class WaitlistDbHelper extends SQLiteOpenHelper{
 				+ WaitlistContract.WaitlistEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ WaitlistContract.WaitlistEntry.COLUMN_GUEST_NAME + " TEXT NOT NULL, "
 				+ WaitlistContract.WaitlistEntry.COLUMN_PARTY_SIZE + " INTEGER NOT NULL, "
-				+ WaitlistContract.WaitlistEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMPT"
+				+ WaitlistContract.WaitlistEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
 				+ ");";
 		db.execSQL(SQL_CREATE_WAITLIST_TABLE);
 	}
