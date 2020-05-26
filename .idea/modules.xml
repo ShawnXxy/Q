@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Q.iml" filepath="$PROJECT_DIR$/.idea/Q.iml" group="Q" />
+      <module fileurl="file://$PROJECT_DIR$/app/Q-app.iml" filepath="$PROJECT_DIR$/app/Q-app.iml" group="Q/app" />
+      <module fileurl="file://$PROJECT_DIR$/androidstudio-workspace-Q.iml" filepath="$PROJECT_DIR$/androidstudio-workspace-Q.iml" group="Q" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Q/app" />
     </modules>
   </component>
